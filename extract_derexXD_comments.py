@@ -17,7 +17,12 @@ with YoutubeDL(flags) as derexXD:
     info = derexXD.extract_info(url, download=False)
 
 comments = info.get("comments", [])
-print(comments)
+
+with open("comments.json", "w") as file:
+    json.dump(comments, file, indent=2)
+
+print(f"Done\nExtracted {len(comments)} comments from el video")
+
 # subprocess.run(
 #     [
 #         "yt-dlp",
