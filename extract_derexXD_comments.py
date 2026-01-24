@@ -66,7 +66,7 @@ with YoutubeDL(flags) as derexXD:
 comments = info.get("comments", [])
 mergeSort(comments, 0, len(comments) - 1)
 
-with open("comments.json", "w") as file:
+with open("docs/comments.json", "w") as file:
     json.dump(comments, file, indent=2)
 
 print(f"Done\nExtracted {len(comments)} comments from el video")
