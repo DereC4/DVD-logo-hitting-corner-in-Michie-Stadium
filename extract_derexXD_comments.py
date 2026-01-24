@@ -16,6 +16,8 @@ url = 'https://youtu.be/ytKVGtJ5yng?si=2bq3ltobiuo9lA4q'
 with YoutubeDL(flags) as derexXD:
     info = derexXD.extract_info(url, download=False)
 
+comments = info.get("comments", [])
+print(comments)
 # subprocess.run(
 #     [
 #         "yt-dlp",
