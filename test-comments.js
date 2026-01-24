@@ -3,7 +3,7 @@ async function loadComments() {
   try {
     const response = await fetch("comments.json");
     const allComments = await response.json();
-    const first5Comments = allComments.slice(0, 5);
+    const first5Comments = allComments.slice(0, 25);
 
     renderComments(first5Comments);
   } catch (error) {
@@ -22,12 +22,14 @@ function formatLikes(count) {
 
 function createCommentHTML(comment) {
   const badges = [];
+
   if (comment.is_pinned) {
     badges.push('<span class="stat-badge pinned-badge">📌 Pinned</span>');
   }
-  if (comment.is_favorited) {
-    badges.push('<span class="stat-badge favorited-badge">❤️ Favorited</span>');
-  }
+
+//   if (comment.is_favorited) {
+//     badges.push('<span class="stat-badge favorited-badge">❤️ Favorited</span>');
+//   }
 
   return `
         <div class="comment">
