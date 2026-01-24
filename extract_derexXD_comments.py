@@ -64,6 +64,7 @@ with YoutubeDL(flags) as derexXD:
     info = derexXD.extract_info(url, download=False)
 
 comments = info.get("comments", [])
+mergeSort(comments, 0, len(comments) - 1)
 
 with open("comments.json", "w") as file:
     json.dump(comments, file, indent=2)
