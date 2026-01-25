@@ -40,11 +40,13 @@ function createCommentHTML(comment) {
   return `
         <div class="comment">
             <div class="avatar">
-                <img src="${comment.author_thumbnail}" alt="${comment.author}">
+                <a href="${comment.author_url}" target="_blank" rel="noopener noreferrer">
+                    <img src="${comment.author_thumbnail}" alt="${comment.author}">
+                </a>
             </div>
             <div class="comment__wrapper">
                 <div class="comment__body">
-                    <span class="comment__author">${comment.author}</span>
+                    <a href="${comment.author_url}" target="_blank" rel="noopener noreferrer" class="comment__author">${comment.author}</a>
                     <p class="comment__text" dir="auto">${comment.text}</p>
                 </div>
                 <div class="comment__stats">
