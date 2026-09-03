@@ -48,7 +48,7 @@ func main() {
 	comments := mergeComments(existing, fetched)
 
 	sort.SliceStable(comments, func(i, j int) bool {
-		return likeCount(comments[i]) > likeCount(comments[j])
+		return timestamp(comments[i]) > timestamp(comments[j])
 	})
 
 	data, err := json.MarshalIndent(comments, "", "  ")
@@ -114,7 +114,7 @@ func commentID(comment map[string]any) string {
 	return id
 }
 
-func likeCount(comment map[string]any) float64 {
-	n, _ := comment["like_count"].(float64)
+func timestamp(comment map[string]any) float64 {
+	n, _ := comment["timestamp"].(float64)
 	return n
 }
